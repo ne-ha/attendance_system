@@ -1,22 +1,6 @@
 <h1>Attendance Page</h1>
 
 <center>
-
-  <%= button_to "Login" %>  <%= button_to "Logout" %>
-
-  <table class ="">
-    <tr>
-      <th>Email</th>
-      <th>Login</th>
-      <th>Logout</th>
-      <th>Total</th>
-    </tr>
-    <tr>
-        <td><%= @user.email %></td>
-        <td><%= @user.login %></td>
-        <td><%= @user.logout %></td>
-        <td><%#= u.total %></td>
-      </tr>
-    
-  </table>
+  <%= link_to("login", {:action => 'create'}, :class => 'action create') %>  <%#= button_to "Logout" %>
+    <%= render(:partial => "form", :locals => {:f => f}) %>
 </center>
