@@ -1,0 +1,20 @@
+<%= form_for(:home, :url => {:action => 'create'}) do |f| %>
+  <table summary = " User form fields" >
+    <tr>
+      <th><%= f.label(:email, "Email") %></th>
+      <td><%= f.text_field(:email) %></td>
+    </tr>
+    <tr>
+      <th><%= f.label(:login, "Login Time") %></th>
+      <td><%= f.text_field(:login) %></td>
+    </tr>
+    <tr>
+      <th><%= f.label(:logout, "Logout Time") %></th>
+      <td><%= f.text_field(:logout) %></td>
+    </tr>
+    <tr>
+      <th><%= f.label(:total, "Total Time") %></th>
+      <td><%= f.text_field(:total) %></td>
+    </tr>
+  </table>
+<% end%>
