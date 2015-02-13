@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   end
 
   def total
+
   end
 
   
