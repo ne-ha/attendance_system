@@ -1,2 +1,22 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Attendance Page</h1>
+
+<center>
+
+  <%= button_to "Login" %>  <%= button_to "Logout" %>
+
+  <table class ="">
+    <tr>
+      <th>Email</th>
+      <th>Login</th>
+      <th>Logout</th>
+      <th>Total</th>
+    </tr>
+    <tr>
+        <td><%= @user.email %></td>
+        <td><%= @user.login %></td>
+        <td><%= @user.logout %></td>
+        <td><%#= u.total %></td>
+      </tr>
+    
+  </table>
+</center>
