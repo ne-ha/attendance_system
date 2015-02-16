@@ -1,16 +1,23 @@
-<table summary = " User form fields" >
+<% if @records.present?  %>
+  <table summary = " User form fields" >
+    <tr>
+      <th>Email</th>
+      <th>Login Time</th>
+      <th>Logout Time</th>
+      <th>Total Time</th>
+    </tr>
+    <% @records.each do |record| %>
       <tr>
-        <th>Email</th>
-        <th>Login Time</th>
-        <th>Logout Time</th>
-        <th>Total Time</th>
+        <td><%= record.user.email %></td>
+        <td><%= record.login_time %></td>
+        <td><%= record.logout_time %></td>
+        <td><%#= total %></td>
       </tr>
-      <% @records.each do |record| %>
-        <tr>
-            <td><%= record.user.email %></td>
-            <td><%= record.login_time %></td>
-            <td><%= record.logout_time %></td>
-            <td><%#= total %></td>
-        </tr>
-      <% end %>
-    </table>
+    <% end %>
+  </table>
+<% else %>
+  No Records yet!
+<% end %>
+
+
+    
