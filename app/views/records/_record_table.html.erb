@@ -1,5 +1,15 @@
+ <%= button_to "Login", records_path, method: :post,remote: true  unless todays_record.present?%>
+  
+<%= button_to "Logout", record_path(@todays_record.id), method: :put,remote: true if todays_record.present?%>
 <% if @records.present?  %>
-  <table summary = " User form fields" >
+   <div id="flash">
+    <% if !flash[:notice].blank? %>
+      <div class = "notice">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+  </div>
+  <table summary = " User form fields" style="width:70%">
     <tr>
       <th>Email</th>
       <th>Login Time</th>
@@ -11,7 +21,9 @@
         <td><%= record.user.email %></td>
         <td><%= record.login_time %></td>
         <td><%= record.logout_time %></td>
-        <td><%#= total %></td>
+        <% if record.login_time.present? && record.logout_time.present? %>
+          <td><%= record.total%></td>
+        <% end %>
       </tr>
     <% end %>
   </table>
