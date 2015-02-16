@@ -10,10 +10,6 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
-  def total
-
-  end
-
-  
+   
 
 end
