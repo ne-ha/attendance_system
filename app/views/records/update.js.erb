@@ -1,0 +1,1 @@
+$("div#record").html($('<%= escape_javascript(render :partial => "records/record_table",:locals=>{:records=> @records}) %>'));
