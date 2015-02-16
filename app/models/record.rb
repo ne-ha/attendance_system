@@ -3,7 +3,8 @@ class Record < ActiveRecord::Base
   belongs_to :user
 
   def total
-    self.login_time-self.logout_time
+    diff_time = logout_time-login_time
+    Time.at(diff_time).utc.strftime("%H:%M:%S")
   end
 
 end
