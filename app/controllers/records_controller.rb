@@ -3,17 +3,28 @@ class RecordsController < ApplicationController
   
   def index
     @records = current_user.records
-    render "home/index"
+    redirect_to(root_path)
   end
 
   def create
-    @record = current_user.records.create(:login_time => Time.now)
-    @records = current_user.records
+    binding.pry
+    if current_user.records.where("login_time > ?",Time.now.beginning_of_day).empty?
+      @record = current_user.records.create(:login_time => Time.now)
+      flash[:notice] = "Login time was added successfully."
+    end
+      @records = current_user.records
+      redirect_to(root_path)
   end
 
-  def logout
-    @record = current_user.records.create(:logout_time => Time.now)
-    @records = current_user.records
+  def update
+    @records = Record.find(params[:id])
+    @todays_record = current_user.records.where("login_time > ?",Time.now.beginning_of_day).first
+    if @records.update_attributes(:logout_time => Time.now)
+      flash[:notice] = "Logout time was added successfully."
+      redirect_to(root_path( :user_id => @todays_record.id))
+    else
+      redirect_to(root_path)
+    end
   end
     
   def new
