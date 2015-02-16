@@ -12,10 +12,10 @@ class RecordsController < ApplicationController
   end
 
   def logout
-    
+    @record = current_user.records.create(:logout_time => Time.now)
+    @records = current_user.records
   end
     
-  end
   def new
   end
 
