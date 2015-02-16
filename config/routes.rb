@@ -5,11 +5,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   resources :users
   
-  resources :records do
-    member do
-      post 'logout'
-    end
-  end
+  resources :records
   # You can have the root of your site routed with "root"
    root 'home#index'
 
