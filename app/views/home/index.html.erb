@@ -1,6 +1,6 @@
 <h1>Attendance Page</h1>
 
 <center>
-  <%= link_to("login", {:action => 'create'}, :class => 'action create') %>  <%#= button_to "Logout" %>
-    <%= render(:partial => "form", :locals => {:f => f}) %>
+  <%= link_to("login", users_path(current_user.id), :class => 'action create') %>  <%#= button_to "Logout" %>
+    <%= render(:partial => "form") %>
 </center>
