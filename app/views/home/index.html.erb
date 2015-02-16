@@ -1,8 +1,8 @@
 <h1>Attendance Page</h1>
 
 <center>
-  <%= button_to "Login", records_path,remote: true %>
-   <%#= button_to "Logout" %>
+  <%= button_to "Login", records_path, method: :post,remote: true  unless @todays_record.present?%>
+  <%= button_to "Logout", record_path(@todays_record.id),remote: true if @todays_record.present? %>
    <div id="record">
      <%= render :partial => "records/record_table",:locals=>{:records=> @records} %>
   </div>
