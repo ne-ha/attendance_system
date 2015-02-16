@@ -1,4 +1,4 @@
-<%= form_for(:home, :url => {:action => 'create'}) do |f| %>
+<%= form_for(:home, :url => {:controller => 'users',:action => 'create'}) do |f| %>
   <table summary = " User form fields" >
     <tr>
       <th><%= f.label(:email, "Email") %></th>
